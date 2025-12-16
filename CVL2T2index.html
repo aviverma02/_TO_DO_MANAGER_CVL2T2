@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Your Personal To-Do Manager</title>
+    <link rel="stylesheet" href="CVL2T2styles.css">
+</head>
+<body>
+    <!-- Confetti Canvas for Celebration Effect -->
+    <canvas id="celebrationCanvas" class="celebration-canvas"></canvas>
+    
+    <div class="container">
+        <header class="app-header">
+            <div class="header-content"> 
+                <h1 class="app-title">TaskFlow</h1>
+                <p class="app-subtitle">Organize your day, one task at a time</p>
+            </div>
+            <button class="theme-switcher" id="themeSwitcher" title="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <div class="task-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalTasks">0</span>
+                    <span class="stat-label">Total</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="completedTasks">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+            </div>
+
+            <!-- Completion Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-percentage" id="progressPercentage">0%</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <form class="task-form" id="taskForm">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        class="task-input" 
+                        placeholder="What needs to be done?"
+                        autocomplete="off"
+                        required
+                    >
+                    <div class="priority-selector">
+                        <select-id="prioritySelect" class="priority-select">
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                    <div class="deadline-selector">
+                        <input 
+                            type="date" 
+                            id="deadlineInput" 
+                            class="deadline-input"
+                            title="Set task deadline"
+                        > 
+                    </div>
+                    <button type="submit" class="add-btn">
+                        <span class="btn-text">Add Task</span>
+                        <span class="btn-icon">+</span>
+                    </button>
+                </div>
+            </form>
+
+            <div class="filter-and-search">
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Tasks</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+                <div class="search-wrapper">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="🔍 Search tasks..."
+                        autocomplete="off"
+                    >
+                    <button class="clear-search-btn" id="clearSearchBtn" title="Clear search">×</button>
+                </div>
+            </div>
+
+            <div class="tasks-container">
+                <ul class="task-list" id="taskList">
+                    <!-- Tasks will be dynamically added here -->
+                </ul>
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">📋</div>
+                    <h3>No tasks yet</h3>
+                    <p>Add a task above to get started</p>
+                </div>
+            </div>
+
+            <div class="task-actions">
+                <button class="action-btn download-btn" id="downloadBtn" title="Download tasks as JSON">
+                    <span>⬇️ Download</span>
+                </button>
+                <button class="action-btn share-btn" id="shareBtn" title="Share tasks">
+                    <span>📤 Share</span>
+                </button>
+                <button class="action-btn upload-btn" id="uploadBtn" title="Import tasks from JSON">
+                    <span>⬆️ Import</span>
+                </button>
+                <input type="file" id="importInput" accept=".json" style="display:none" />
+                <button class="clear-btn" id="clearCompleted">Clear Completed</button>
+            </div>
+
+            <!-- Share Modal -->
+            <div class="modal" id="shareModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Share Your Tasks</h3>
+                        <button class="modal-close" onclick="closeShareModal()">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Share this text with others:</p>
+                        <textarea-id="shareText" readonly class="share-textarea"></textarea>
+                        <button class="copy-btn" onclick="copyShareText()">📋 Copy to Clipboard</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>&copy; 2024 TaskFlow. Made with care for productivity.</p>
+        </footer>
+    </div>
+
+    <script src="CVL2T2script.js"></script>
+</body>
+</html>
