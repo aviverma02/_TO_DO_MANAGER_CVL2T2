@@ -9,7 +9,7 @@ TaskFlow is a modern and interactive task management web application designed to
 📊 Progress tracking with animations
 
 📝 Task notes support
-
+  
 🔍 Search & filter tasks
   
 📤 Import & export tasks (JSON)
