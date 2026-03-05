@@ -5,7 +5,7 @@ TaskFlow is a modern and interactive task management web application designed to
 🎯 Priority & deadline management  
 
 🌙 Dark / Light theme toggle
-
+ 
 📊 Progress tracking with animations
 
 📝 Task notes support
